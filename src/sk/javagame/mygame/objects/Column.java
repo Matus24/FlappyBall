@@ -71,7 +71,7 @@ public class Column {
             }
             if(Ball.getBallPosY() < -30 || Ball.getBallPosY() > 500){
                 gameOver = true;
-//ooo
+
             }
         }
     }

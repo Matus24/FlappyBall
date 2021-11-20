@@ -26,6 +26,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
     private BufferedImage bg;
     private BufferedImage ball;
     private BufferedImage textTap;
+    private BufferedImage grass;
 
 
     private boolean spacePressed = false;
@@ -50,6 +51,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
         bg = ImageLoader.loadImage("images/bg.jpg");
         ball = ImageLoader.loadImage("images/ball.png");
         textTap = ImageLoader.loadImage("images/textTap.png");
+        grass = ImageLoader.loadImage("images/grass.png");
 
         timer = new Timer(delay,this);
         timer.start();
@@ -69,8 +71,6 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
         //background
         g.drawImage(bg,bgX,0,800,600,null);
         g.drawImage(bg,bgX+800,0,800,600,null);
-
-
 
         //menu screen
         if(menuScreenActive){
@@ -92,6 +92,9 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
             column.paintColumn(g);
             score.paintScorePlayGame(g2d);
         }
+        //grass
+        g.drawImage(grass,bgX,490,800,100,null);
+        g.drawImage(grass,bgX+800,490,800,100,null);
 
         g.dispose();
     }
