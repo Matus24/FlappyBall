@@ -18,7 +18,9 @@ public class GameOverScreen {
         g.drawImage(gameOver,230,150,300,200,null);
         g.setPaint(Color.darkGray);
         g.setFont(new Font("Serif",Font.BOLD,27));
+        //your score
         g.drawString(String.valueOf(score),370,232);
+        //top score
         g.drawString(FileWriteRead.read("score.txt"),370,280);
     }
 }

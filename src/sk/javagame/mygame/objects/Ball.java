@@ -4,13 +4,11 @@ public class Ball {
 
     private static final int ballPosX = 200;
     private static int ballPosY = 300;
-
     private static int posBallJump = 80;
     private static int flyBall = 13;
     private static int gravity = 0;
     private static int iteratorGravity = 0;
     private static int helpTapNumber = 0;
-
 
 
     public static void ballGravity(boolean playGame){

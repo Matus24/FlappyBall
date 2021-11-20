@@ -3,8 +3,6 @@ import java.io.*;
 
 
 public class FileWriteRead {
-    public FileWriteRead() {
-    }
 
     public static void write(String text, String pathUrl){
         try{

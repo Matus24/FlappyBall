@@ -7,6 +7,11 @@ import java.io.IOException;
 
 public class ImageLoader {
 
+    /**
+     * method loadImage load BufferedImage and return BufferedImage
+     * @param pathUrl file name image
+     * @return BufferedImage or null
+     */
     public static BufferedImage loadImage(String pathUrl){
         File path;
         try {

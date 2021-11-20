@@ -39,6 +39,7 @@ public class Column {
         column[3][1] = -200;
     }
 
+    //generate new position column and move X position column
     public void columnGeneratorPosition(){
         int randomRange = 200;
         for(int i = 0; i < column.length; i++){
@@ -59,6 +60,7 @@ public class Column {
         }
     }
 
+    //if ball hit column or up or down border than gameOver set true
     public void ballHit(){
         for(int i = 0; i < column.length; i++) {
             if (new Rectangle(Ball.getBallPosX(), Ball.getBallPosY(), 20, 20).intersects(column[i][0], column[i][1], columnWidth, columnHeight)){
@@ -69,7 +71,6 @@ public class Column {
             }
             if(Ball.getBallPosY() < -30 || Ball.getBallPosY() > 500){
                 gameOver = true;
-
             }
         }
     }
