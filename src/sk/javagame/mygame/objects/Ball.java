@@ -5,9 +5,6 @@ public class Ball {
     private static final int ballPosX = 200;
     private static int ballPosY = 300;
 
-    private static int ballWidth = 30;
-    private static int ballHeight = 30;
-
     private static int posBallJump = 80;
     private static int flyBall = 13;
     private static int gravity = 0;
@@ -53,14 +50,6 @@ public class Ball {
             gravity = 0;
         }
 
-    }
-
-    public static int getBallWidth(){
-        return ballWidth;
-    }
-
-    public static int getBallHeight() {
-        return ballHeight;
     }
 
     public static int getBallPosY(){

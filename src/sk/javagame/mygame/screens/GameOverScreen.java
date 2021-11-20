@@ -8,7 +8,7 @@ import java.awt.image.BufferedImage;
 
 public class GameOverScreen {
 
-    private BufferedImage gameOver;
+    private final BufferedImage gameOver;
 
     public GameOverScreen() {
         gameOver = ImageLoader.loadImage("images/GameOver.png");

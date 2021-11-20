@@ -1,10 +1,6 @@
 package sk.javagame.mygame;
-
-import sk.javagame.mygame.objects.Score;
-
 import java.io.*;
-import java.net.URL;
-import java.nio.file.Path;
+
 
 public class FileWriteRead {
     public FileWriteRead() {

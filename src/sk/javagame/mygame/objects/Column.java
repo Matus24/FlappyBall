@@ -1,25 +1,22 @@
 package sk.javagame.mygame.objects;
 
 import sk.javagame.mygame.ImageLoader;
-import sk.javagame.mygame.objects.Ball;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 
 public class Column {
-
-    private int randomRange = 200;
-    private int columnWidth = 30;
-    private int columnHeight = 300;
-    private int spaceBetweenColumn = 430;
-    private int[][] column = new int[4][2];
+    private final int columnWidth = 30;
+    private final int columnHeight = 300;
+    private final int spaceBetweenColumn = 430;
+    private final int[][] column = new int[4][2];
 
     private boolean gameOver = false;
 
-    private BufferedImage columnImage;
+    private final BufferedImage columnImage;
 
-    private Random random;
+    private final Random random;
 
     public Column() {
         random = new Random();
@@ -43,6 +40,7 @@ public class Column {
     }
 
     public void columnGeneratorPosition(){
+        int randomRange = 200;
         for(int i = 0; i < column.length; i++){
             column[i][0] = column[i][0] - 2;
 

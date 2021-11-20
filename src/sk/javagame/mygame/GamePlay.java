@@ -17,17 +17,15 @@ import java.io.IOException;
 
 
 public class GamePlay extends JPanel implements KeyListener, ActionListener {
-    private boolean play = false;
 
-    private Timer timer;
-    private int delay = 8;
+    private final Timer timer;
     private int bgX = 0;
     private int speedMoveXBackground = 0;
 
-    private BufferedImage bg;
-    private BufferedImage ball;
-    private BufferedImage textTap;
-    private BufferedImage grass;
+    private final BufferedImage bg;
+    private final BufferedImage ball;
+    private final BufferedImage textTap;
+    private final BufferedImage grass;
 
 
     private boolean spacePressed = false;
@@ -37,13 +35,13 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
     private boolean gameOverScreenActive = false;
 
     private Column column;
-    private MenuScreen menuScreen;
+    private final MenuScreen menuScreen;
     private Score score;
-    private GameOverScreen gameOverScreen;
+    private final GameOverScreen gameOverScreen;
 
 
     public GamePlay() throws IOException {
-        play = true;
+        int delay = 8;
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);

@@ -7,9 +7,8 @@ import java.io.IOException;
 
 public class ImageLoader {
 
-    private static File path;
-
     public static BufferedImage loadImage(String pathUrl){
+        File path;
         try {
             path = new File(ImageLoader.class.getResource(pathUrl).getPath());
             return ImageIO.read(path);

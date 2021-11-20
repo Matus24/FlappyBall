@@ -1,8 +1,6 @@
 package sk.javagame.mygame;
 
 import javax.swing.*;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
 
 public class Main {
@@ -18,7 +16,6 @@ public class Main {
         obj.add(gamePlay);
 
         obj.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 
     }
 }

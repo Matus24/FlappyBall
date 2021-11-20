@@ -5,9 +5,8 @@ import sk.javagame.mygame.ImageLoader;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.Scanner;
+
 
 public class MenuScreen {
     private BufferedImage gameName;
