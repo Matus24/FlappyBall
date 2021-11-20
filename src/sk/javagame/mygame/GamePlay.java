@@ -3,6 +3,7 @@ package sk.javagame.mygame;
 import sk.javagame.mygame.objects.Ball;
 import sk.javagame.mygame.objects.Column;
 import sk.javagame.mygame.objects.Score;
+import sk.javagame.mygame.screens.GameOverScreen;
 import sk.javagame.mygame.screens.MenuScreen;
 
 import javax.swing.*;
@@ -33,11 +34,12 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
     private boolean instructionScreen = false;
     private boolean playGameScreenActive = false;
     private boolean menuScreenActive = true;
+    private boolean gameOverScreenActive = false;
 
     private Column column;
     private MenuScreen menuScreen;
     private Score score;
-
+    private GameOverScreen gameOverScreen;
 
 
     public GamePlay() throws IOException {
@@ -48,10 +50,12 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
         column = new Column();
         menuScreen = new MenuScreen();
         score = new Score();
+        gameOverScreen = new GameOverScreen();
         bg = ImageLoader.loadImage("images/bg.jpg");
         ball = ImageLoader.loadImage("images/ball.png");
         textTap = ImageLoader.loadImage("images/textTap.png");
         grass = ImageLoader.loadImage("images/grass.png");
+
 
         timer = new Timer(delay,this);
         timer.start();
@@ -92,6 +96,10 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
             column.paintColumn(g);
             score.paintScorePlayGame(g2d);
         }
+
+        if(gameOverScreenActive){
+            gameOverScreen.paintGameOverScreen(g2d, score.getScore());
+        }
         //grass
         g.drawImage(grass,bgX,490,800,100,null);
         g.drawImage(grass,bgX+800,490,800,100,null);
@@ -120,10 +128,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
                 FileWriteRead.write(String.valueOf(score.getScore()), "score.txt");
             }
             playGameScreenActive = false;
-            menuScreenActive = true;
-            column = new Column();
-            score = new Score();
-            Ball.setBallPosY(300);
+            gameOverScreenActive = true;
         }
         repaint();
     }
@@ -135,18 +140,24 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if(e.getKeyCode() == KeyEvent.VK_P){
+        if(e.getKeyCode() == KeyEvent.VK_P && !gameOverScreenActive){
             menuScreenActive = false;
             instructionScreen = true;
         }
-        if(e.getKeyCode() == KeyEvent.VK_SPACE && !playGameScreenActive && !menuScreenActive){
+        if(e.getKeyCode() == KeyEvent.VK_SPACE && !playGameScreenActive && !menuScreenActive && !gameOverScreenActive){
             playGameScreenActive = true;
             speedMoveXBackground = 2;
         }
         if(e.getKeyCode() == KeyEvent.VK_SPACE && playGameScreenActive && !spacePressed){
             spacePressed = true;
         }
-
+        if(e.getKeyCode() == KeyEvent.VK_R && gameOverScreenActive){
+            column = new Column();
+            score = new Score();
+            Ball.setBallPosY(200);
+            gameOverScreenActive = false;
+            instructionScreen = true;
+        }
 
     }
 

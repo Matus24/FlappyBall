@@ -17,9 +17,6 @@ public class MenuScreen {
     public MenuScreen() throws FileNotFoundException {
         gameName = ImageLoader.loadImage("images/nameGame.png");
         textPlay = ImageLoader.loadImage("images/textPlay.png");
-       // FileWriteRead.write("sss","score.txt");
-        FileWriteRead.read("score.txt");
-
     }
 
     public void paintMenu(Graphics2D g){
